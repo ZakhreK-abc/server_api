@@ -33,6 +33,12 @@ class Main(Resource):
 
             return data
         
+        elif format_url == "/api/db":
+            selection = 3
+            data = self.db.get(selection, mod)
+
+            return data
+        
     
     def delete(self, mod):
         self.db.delete(mod)
@@ -62,6 +68,7 @@ class Main(Resource):
 api.add_resource(Main,
     "/api/db",
     "/api/db/",
+    "/api/db/<int:mod>",
     "/api/db/status/<int:mod>",
     "/api/db/type/<string:mod>",
     "/api/db/name/<string:mod>",
@@ -71,4 +78,4 @@ api.add_resource(Main,
 api.init_app(app)
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000, host="127.0.0.1")
+    app.run(debug=True, port=5000, host="192.168.111.101")

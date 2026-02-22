@@ -25,6 +25,12 @@ class Db:
 
             return data
         
+        elif selection == 3:
+            self.cursor.execute("SELECT * FROM main")
+            data = self.cursor.fetchall()
+
+            return data
+        
         else:
             return []
         

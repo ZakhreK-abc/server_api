@@ -12,7 +12,8 @@ def show():
     print("1.Name")
     print("2.Type")
     print("3.Status")
-    print("4.back")
+    print("4.All")
+    print("5.back")
     print("===================")
     search = int(input("#"))
 
@@ -26,7 +27,7 @@ def show():
         input("Press enter to continue...")
         clear_terminal()
 
-    if search == 2:
+    elif search == 2:
         print("===Enter-type===")
         type = input("#")
 
@@ -36,7 +37,7 @@ def show():
         input("Press enter to continue...")
         clear_terminal()
 
-    if search == 3:
+    elif search == 3:
         print("===Enter-status===")
         status = int(input("#"))
 
@@ -45,8 +46,16 @@ def show():
 
         input("Press enter to continue...")
         clear_terminal()
+    
+    elif search == 4:
+        print("===All-element===")
+        res = requests.get(f"http://127.0.0.1:5000/api/db/0")
+        print(res.json())
 
-    if search == 4:
+        input("Press enter to continue...")
+        clear_terminal()
+
+    elif search == 5:
         clear_terminal()
 
 def add():
